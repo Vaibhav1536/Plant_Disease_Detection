@@ -1,3 +1,4 @@
 ﻿Plant-Disease-Detection/.venv/
 __pycache__/
 *.pyc
+*.pt
