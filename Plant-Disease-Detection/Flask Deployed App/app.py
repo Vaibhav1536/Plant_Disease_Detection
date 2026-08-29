@@ -15,15 +15,12 @@ from huggingface_hub import hf_hub_download
 disease_info = pd.read_csv('disease_info.csv', encoding='cp1252')
 supplement_info = pd.read_csv('supplement_info.csv', encoding='cp1252')
 
-
-# -----------------------------
 # Download model from Hugging Face
 # -----------------------------
 MODEL_PATH = hf_hub_download(
-    repo_id="vaibhav1536/plant_disease_detection_vaibha1536",
+    repo_id="vaibhav1536/plant_disease_dectection_vaibha1536",
     filename="plant_disease_model_1_latest.pt"
 )
-
 
 # -----------------------------
 # Load trained model
@@ -38,7 +35,6 @@ model.load_state_dict(
 )
 
 model.eval()
-
 
 # -----------------------------
 # Prediction function
