@@ -1,47 +1,111 @@
-# ⭐Plant-Disease-Detection
-* Plant Disease is necessary for every farmer so we are created Plant disease detection using Deep learning. In which we are using convolutional Neural Network for classifying Leaf images into 39 Different Categories. The Convolutional Neural Code build in Pytorch Framework. For Training we are using Plant village dataset. Dataset Link is in My Blog Section.
+# 🌿 Plant Disease Detection
 
-## ⭐Run Project in your Machine
-* You must have **Python3.8** installed in your machine.
-* Create a Python Virtual Environment & Activate Virtual Environment [Link](https://docs.python.org/3/tutorial/venv.html)
-* Install all the dependencies using below command
-    `pip install -r requirements.txt`
-* Go to the `Flask Deployed App` folder.
-* Download the pre-trained model file `plant_disease_model_1.pt` from [here](https://drive.google.com/drive/folders/1ewJWAiduGuld_9oGSrTuLumg9y62qS6A?usp=share_link)
-* Add the downloaded file in `Flask Deployed App` folder.
-* Run the Flask app using below command `python3 app.py`
-* You can also use downloaded file in `Model` Section and play with it using Jupyter Notebook.
+A **PyTorch + CNN + Flask** computer-vision application that classifies plant leaf images into **39 disease categories** using the PlantVillage dataset.
 
-## ⭐Contribution ( Open Source )
-* This Project is now open source.
-* All the developers who are intrested they can contribute in this project.
-* Yo can make UI better , make Deep learning model more powerful , add informative markdown file in section...
-* If you will change Deep learning make sure you upload updated markdown file (.md) , .pdf and .ipynb in particular section.
-* Make sure your code is working. It will not have any type or error.
-* You have to fork this project then make a pull request after you testing will successful.
-* How to make pull request : https://opensource.com/article/19/7/create-pull-request-github
+The project includes a trained model, test images, a Flask inference application and a web interface for uploading a leaf image and receiving a prediction.
 
+## 🚀 Highlights
 
-## ⭐Testing Images
+- 🧠 CNN-based image classification with PyTorch
+- 🌱 39 plant/disease classes
+- 🗃️ PlantVillage dataset
+- 🌐 Flask inference application
+- 🤗 Model hosted on Hugging Face and downloaded at runtime
+- 🖼️ Included sample/test images
+- 📊 Disease information and prevention guidance
 
-* If you do not have leaf images then you can use test images located in test_images folder
-* Each image has its corresponding disease name, so you can verify whether the model is working perfectly or not
+## 🏗️ Architecture
 
-## ⭐Blog Link
-<a href="https://medium.com/analytics-vidhya/plant-disease-detection-using-convolutional-neural-networks-and-pytorch-87c00c54c88f" target = "_blank">Plant Disease Detection Using Convolutional Neural Networks with PyTorch</a><br>
+    Leaf Image
+        │
+        ▼
+    Flask Upload Endpoint
+        │
+        ▼
+    Resize → Tensor Conversion
+        │
+        ▼
+    PyTorch CNN
+        │
+        ▼
+    Predicted Class
+        │
+        ├──> Disease information
+        └──> Prevention information
 
-## ⭐Deployed App
-<a href="https://plant-disease-detection-ai.herokuapp.com/" target = "_blank">Plant-Disease-Detection-AI</a><br>
+## 🧰 Tech Stack
 
+- Python
+- PyTorch
+- Torchvision
+- CNN
+- Flask
+- NumPy
+- Pandas
+- Pillow
+- Hugging Face Hub
 
-## ⭐Snippet of Web App :
-#### Main page
-<img src = "demo_images/1.png" > <br>
-#### AI Engine 
-<img src = "demo_images/2.png"> <br>
-#### Results Page 
-<img src = "demo_images/3.png"> <br>
-#### Supplements/Fertilizer  Store
-<img src = "demo_images/4.JPG"> <br>
-#### Contact Us 
-<img src = "demo_images/5.png"> <br><br>
+## 📁 Repository Structure
+
+    Plant-Disease-Detection/
+    ├── Flask Deployed App/
+    │   ├── app.py
+    │   ├── CNN.py
+    │   ├── disease_info.csv
+    │   ├── supplement_info.csv
+    │   ├── templates/
+    │   └── static/
+    ├── Model/
+    ├── demo_images/
+    ├── test_images/
+    └── README.md
+
+## ⚙️ Local Setup
+
+The original inference application uses an older PyTorch stack, so the most reliable approach is to use the versions specified in the application requirements.
+
+    git clone https://github.com/Vaibhav1536/Plant_Disease_Detection.git
+    cd Plant_Disease_Detection/Plant-Disease-Detection/Flask Deployed App
+
+    python -m venv .venv
+
+Windows:
+    .venv\Scripts\activate
+
+    pip install -r requirements.txt
+    python app.py
+
+Open the local Flask address shown in the terminal.
+
+## 🤗 Model
+
+The Flask application downloads the trained model from the Hugging Face Hub at startup, so the large model file does not need to be committed to this Git repository.
+
+## 🧪 Testing
+
+Sample leaf images are available in test_images/. Upload one through the web application to verify the inference pipeline.
+
+## 🖥️ Screenshots
+
+### Main Page
+![Main Page](demo_images/1.png)
+
+### AI Engine
+![AI Engine](demo_images/2.png)
+
+### Prediction Result
+![Prediction Result](demo_images/3.png)
+
+## ⚠️ Limitations
+
+- Performance depends on image quality, lighting and similarity to the training distribution.
+- PlantVillage-style datasets may not fully represent real-world field conditions.
+- The model should be treated as a decision-support tool, not a substitute for expert agricultural diagnosis.
+
+## 🔭 Future Improvements
+
+- Add confidence scores and top-k predictions
+- Improve field-image robustness with augmentation and diverse datasets
+- Add model explainability using Grad-CAM
+- Add an API endpoint for programmatic inference
+- Upgrade the legacy dependency stack and add automated tests
